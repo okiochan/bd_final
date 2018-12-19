@@ -83,7 +83,7 @@
 					</div>
                     
                     <div class="col-md-12">
-                        <a class="btn btn-primary btn-outline href = "restore_pass.php">Restore password</a>
+                        <a class="btn btn-primary btn-outline" href = "restore_pass.php">Restore password</a>
 					</div>
                     
 				</form>

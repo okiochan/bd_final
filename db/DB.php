@@ -92,7 +92,6 @@ class DB{
         //OPEN
         $conn = self::OpenCon();
         // prepare and bind
-        print("sdfsdf");
         $stmt = $conn->prepare("INSERT INTO actors (name, year, img_path, info) VALUES (?, ?, ?, ?)");
         $stmt->bind_param('sdss', $name, $year, $img_path, $info);
         $stmt -> execute();
@@ -214,10 +213,8 @@ class DB{
         $row = $res->fetch_assoc();
         
         if($row == false){
-            print("CheckUserExist false <br>");
             return false;
         }
-        print("CheckUserExist true <br>");
         return true;
     }
     
@@ -235,10 +232,8 @@ class DB{
 
         $row = $res->fetch_assoc();
         if($row == false){
-            print("CheckEmailExist false <br>");
             return false;
         }
-        print("CheckEmailExist true <br>");
         return true;
     }
     
@@ -262,7 +257,6 @@ class DB{
         $stmt -> execute();
         //CLOSE
         $conn->close();
-        print("AddUser true<br>");
         return 1;
     }
  
@@ -274,7 +268,7 @@ class DB{
         $conn = self::OpenCon();
         
         $stmt = $conn->prepare('UPDATE users SET password = ? , salt = ? WHERE username = ?');
-        $stmt->bind_param('sss', $username, $pass, $salt);
+        $stmt->bind_param('sss', $pass, $salt, $username);
         $stmt -> execute();
        //CLOSE
         $conn->close();

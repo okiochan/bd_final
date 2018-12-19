@@ -43,7 +43,6 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="index.php"><img src="images/logo-colored.png" </a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="movies.php">Movies</a></li>

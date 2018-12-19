@@ -6,10 +6,11 @@ $recieved_login = $_POST['login'];
 function restoreUser($username) {  
 
     $user = null;
-    if( DB::dbCheckUserExist($username) ) {
-        $user = $username;
-    } else if( DB::dbCheckEmailExist($username) ) {
-        $user = DB::dbGetUsernameByEmail($username);
+    if( DB::CheckUserExist($username) ) {
+        echo("$username");
+    } else if( DB::CheckEmailExist($username) ) {
+        $user = DB::GetUsernameByEmail($username);
+        echo("$user");
     } else if( $user == null ) {
         echo('userNotFound');
         return;
@@ -17,12 +18,6 @@ function restoreUser($username) {
         echo ('error');
         return;
     }
-    
-    $salt = DB::GenerateSalt();
-    $email = DB::GetEmailByUsername($user);
-    
-    //how to add this to link in js?
-   // "?username=".$user."&salt=".$salt;
 }
 
 restoreUser($recieved_login);
