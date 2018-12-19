@@ -38,7 +38,7 @@ $( document ).ready(function() {
             };
             
             var data = $(".reg_form").serialize();
-            var url = "db/register_user.php";
+            var url = "worker/register_user.php";
             var settings = {
                 data: data,
                 method: "POST",
