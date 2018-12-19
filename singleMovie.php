@@ -103,7 +103,7 @@ require_once __DIR__ . '/db/include.php';
 		<div id="fh5co-main1">
 			<div class="fh5co-narrow-content1 animate-box " data-animate-effect="fadeInLeft">
 				<h2 class="fh5co-heading1" >Info about movie</span></h2>
-                <div class="row">
+                <div>
                 <?php
                     function DisplayInfo($id_movie) {
                         $row = DB::GetMovie($id_movie);
@@ -114,14 +114,14 @@ require_once __DIR__ . '/db/include.php';
                             die();
                         }
                          $format= ' 
-                            <a class="col-md-12">
+                            <div class="col-md-12">
                             <figure><img src="movies/%s" class="img-responsive1"></figure>
                             <h3> Name: %s </h3>
                             <h3> Genre: %s </h3>
                             <h3> Year: %s </h3>
                             <h3> Rating: %s </h3>
                             <h3> Info: </h3> <h4> %s <h4> 
-                            </a>
+                            </div>
                         ';
                         
                         printf($format, htmlspecialchars($row["img_path"]), htmlspecialchars($row["name"]), 
@@ -145,14 +145,18 @@ require_once __DIR__ . '/db/include.php';
                 <?php
 
                 $comments = CommentsDB::GetComments($id_movie);
-                echo '<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft"><div class="row">';
+                echo '<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft"><div >';
                 foreach($comments as $com) {
                     echo
                     '<div class="col-md-8 comments">
                     <div class="panel panel-default">
-                    <div class="panel-heading">
-                    <strong>'. htmlspecialchars($com["username"]) .'</strong> <span class="text-muted">commented at '. htmlspecialchars($com["time"]) .'</span>
-                    </div>
+                        <div class="panel-heading">
+                            <strong>'. htmlspecialchars($com["username"]) .'</strong>
+                            <span class="text-muted"> 
+                                Rating: '.htmlspecialchars($com["rating"]).'
+                                Commented at '. htmlspecialchars($com["time"]) .'
+                            </span>
+                        </div>
                     <div class="panel-body">
                     '. htmlspecialchars($com["text"]) .'
                     </div>
@@ -167,35 +171,43 @@ require_once __DIR__ . '/db/include.php';
                 
                 if($is_logged) {
                 ?>
-                <div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
-                    <div class="row">
-                        <div class="col-md-4 comments">
-                            <h1>Leave a Comment</h1>
-                        </div>
-                    </div>
-                    
                     <form class="comment_form" action="" method="post">
-                        <div class="row">
+                        <div >
                             <div class="col-md-12">
-                                <div class="row">	
+                                <div >	
                                     <div class="col-md-6 comments">
                                         <div class="form-group">
                                             <textarea name="text" id="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
                                         </div>
-                                        <div class="g-recaptcha" data-sitekey="6LfT2EMUAAAAAI3OD46lijfQoPW7hO8_jGyD_YP-"></div>
                                         <div class="form-group">
-                                            <input type="submit" class="btn btn-primary btn-md comment_submit" value="Add comment">
+                                            
+                                            <p><b>Rating</b></p>
+                                            <select name="Rating">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            </select>
+                                    
+                                            <input type="submit" name="btn_submit" class="btn btn-primary btn-md comment_submit" value="Add comment">
                                             <input type="hidden" name="id_movie" value="<?php echo htmlspecialchars($id_movie); ?>">
                                             <input type="hidden" name="username" value="<?php echo htmlspecialchars(Users::whichUser()); ?>">
                                         </div>
+                                        
                                     </div>
                                     <div class="col-md-6 comments">
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                     </form>
+
                 </div>
                 <?php 
                 } 

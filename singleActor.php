@@ -111,12 +111,12 @@ require_once __DIR__ . '/db/include.php';
                             die();
                         }
                          $format= ' 
-                            <a class="col-md-12">
+                            <div class="col-md-12">
                             <figure><img src="actors/%s" class="img-responsive1"></figure>
                             <h3> Name: %s </h3>
                             <h3> Year: %s </h3>
                             <h3> Info: </h3> <h4> %s </h4>
-                            </a>
+                            </div>
                         ';
                         
                         printf($format, htmlspecialchars($row["img_path"]), htmlspecialchars($row["name"]), htmlspecialchars($row["year"]), htmlspecialchars($row["info"]) );

@@ -14,7 +14,7 @@ if (empty($_POST['text'])) Result(3, "no text");
 $id_movie = $_POST['id_movie'];
 $text = $_POST['text'];
 $username = Users::whichUser();
-$rating = 0;
+$rating = $_POST['Rating'];
 
 try {
     CommentsDB::AddComment($id_movie, $username, $text, $rating); 

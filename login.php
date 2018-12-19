@@ -71,7 +71,7 @@
 										<input type="text" class="form-control" placeholder="Name or Email" name="login" required>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Password" name="pass" required>
+										<input type="password" class="form-control" placeholder="Password" name="pass" required>
 									</div>
 								</div>								
 							</div>

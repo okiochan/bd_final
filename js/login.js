@@ -24,6 +24,10 @@ $( document ).ready(function() {
         
         var data = $(".log_form").serialize();
         var url = "worker/login_user.php";
+        
+        //example!
+        console.dir(data);
+        
         var settings = {
             data: data,
             method: "POST",
