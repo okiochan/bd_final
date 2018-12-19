@@ -128,14 +128,13 @@ require_once __DIR__ . '/db/include.php';
                         htmlspecialchars($row["genre"]), htmlspecialchars($row["year"]), htmlspecialchars($rating), htmlspecialchars($row["info"]) );
                         
                         $arr = DB::GetActors($id_movie);
-                        print(' <a class="col-md-12"> <h3> Actors : </h3>');
-                        $format= '
-                            <h4> %s </h4>
-                        ';
-                        foreach( $arr as $row) {
-                             printf($format,  htmlspecialchars($row["name"]));
+                        print(' <div class="col-md-12"> <h3> Actors : </h3>');
+                        $format= '<h4><a href="%s">%s</a></h4>';
+                        foreach($arr as $row) {
+                            $url = "singleActor.php?id_act=" . urlencode($row["id"]);
+                            printf($format, htmlspecialchars($url), htmlspecialchars($row["name"]));
                         }
-                        print("</a>");
+                        print("</div>");
                         
                     }
                     //----------------------------------

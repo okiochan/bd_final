@@ -6,8 +6,8 @@ class DB{
 
 //+
     function OpenCon() {
-        $servername = "localhost";
-        $username = "root";
+        $servername = "192.168.0.4";
+        $username = "user";
         $password = "123";
         $db = "tmp";
 
