@@ -6,14 +6,15 @@ $( document ).ready(function() {
             
         var onSuccess = function(data, textStatus, jqXHR) {
             
-            if (data.indexOf("success") != -1) {
-                window.location = "enter_new_pass.php";
-                return;
-            }else if (data.indexOf("userNotFound") != -1){
+            if (data.indexOf("userNotFound") != -1) {
                 alert("user not found");
                 return;
-            } else {
+            } else if(data.indexOf("error") != -1){
                 alert("error");
+                return;
+            } else {
+                user = data;
+                window.location = "enter_new_pass.php?username="+user;
             }
             
             console.dir(data);

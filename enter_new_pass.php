@@ -1,16 +1,12 @@
 <?php
-require_once __DIR__ . '/php/include.php';
+require_once __DIR__ . '/db/include.php';
 
 $username = $_GET['username'];
-$salt = $_GET['salt'];
 
-if(DB::dbCheckUserExist($username) == false) {
+if(DB::CheckUserExist($username) == false) {
     die("user_not_found");
 }
 
-if( DBrestore::dbCheckSalt($username, $salt) == false) {
-    die("salt_not_found");
-}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +54,6 @@ if( DBrestore::dbCheckSalt($username, $salt) == false) {
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="index.php"><img src="images/logo-colored.png" </a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="movies.php">Movies</a></li>
@@ -84,14 +79,11 @@ if( DBrestore::dbCheckSalt($username, $salt) == false) {
 							<div class="row">	
 								<div class="col-md-6">
                                     
-                                    <div name="help_for_pass_input" id="help_for_pass_input" class="warning_message_in_feedback_form" style="visibility:visible; color: red;">
-									</div>
 									<div class="form-group">
 										<input type="text" id="Pass_Input" class="form-control" placeholder="Password" name="pass1" required>
                                         <input type="text" id="Pass_Input1" class="form-control" placeholder="Confirm Password" name="pass2" required>
                                         
                                         <input type="hidden"  value = <?php echo  '"'.htmlspecialchars($username).'"' ?> name="username">
-                                        <input type="hidden"  value = <?php echo  '"'.htmlspecialchars($salt).'"' ?> name="salt">
 									</div>
                                     
 								</div>								
