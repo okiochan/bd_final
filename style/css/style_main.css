@@ -1,0 +1,250 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    font-weight: 300;
+  
+    background-color: #666;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #FFFAF0;
+  font-family: "Merriweather", Times, serif;
+  font-weight: 700;
+  margin: 0 0 30px 0;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+h1, h2, h3, footer, .gallery {
+    text-align: center;
+}
+
+.gallery .gallery_item {
+    width: 700px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    z-index: 110;
+    margin: 4px 6px;
+    box-shadow: 0 0 4px -1px #000;
+}
+
+
+.gallery .gallery_item_left {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    z-index: 110;
+    margin: 4px 6px;
+    box-shadow: 0 0 4px -1px #000;
+}
+
+.gallery .gallery_item_right {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    z-index: 110;
+    margin: 4px 6px;
+    box-shadow: 0 0 4px -1px #000;
+}
+
+.gallery .gallery_item_left img {
+  position: relative;
+  height: 100%;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition: 0.9s;
+  -o-transition: 0.9s;
+  transition: 0.9s;
+}
+
+
+/* ----------------------------ANIMATION------------------------------------- */
+
+.gallery .gallery_item .overlay {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 11;
+  vertical-align: middle;
+  padding-top: 30%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.gallery .gallery_item .overlay h2, .gallery .gallery_item .overlay span {
+  position: relative;
+  z-index: 12;
+  margin-bottom: 0;
+  text-align: center;
+  display: block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  color: #FFFAF0;
+}
+
+.gallery .gallery_item .overlay h2 {
+  color: #FFFAF0;
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.gallery .gallery_item .overlay span {
+  color: #7ac143;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  bottom: -5px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.gallery .gallery_item .overlay:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.gallery .gallery_item:hover img {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.gallery .gallery_item:hover .overlay {
+  visibility: visible;
+  opacity: 1;
+}
+.gallery .gallery_item:hover .overlay:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.gallery .gallery_item:hover .overlay h2 {
+  bottom: 0px;
+}
+.gallery .gallery_item:hover .overlay span {
+  visibility: visible;
+  opacity: 1;
+  bottom: 0px;
+}
+
+/* ----------------------------------------------------------------- */
+
+.header{
+     background-color: #e6e6e6;
+}
+.header h1 {
+    margin-top: 2%;
+    padding-top: 10px;
+    text-align: center;
+    color: #666;
+    height: 60px;
+}
+
+.column {
+    float: left;
+}
+
+/* first, second */
+
+.liink h1{
+    color: #f2f2f2;
+    margin-top: 2%;
+    text-align: center;
+}
+.liink a:link{
+    width: 100%;
+    color: white;
+    text-align: center; 
+    text-decoration: none;
+    display: block;
+    border-radius: 30px;
+    border: 0px solid;
+    padding: 1px; 
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+.liink a:hover{
+     background-color: #a6a6a6;
+     color: #666;
+}
+
+/* position*/
+.clearfix::after {
+    right: "";
+    clear: both;
+    display: table;
+}
+.left {
+    width: 50%;
+    float: left;
+}
+.right {
+    width: 50%;
+    float: right;
+}
+
+.left_footer {
+    width: 100%;
+}
+.left_footer p {
+    padding-left: 20px;
+    text-align: left;
+    line-height: 5px;
+}
+
+.right_footer {
+    width: 100%;
+}
+.right_footer p {
+    padding-right: 20px;
+    text-align: right;
+    line-height: 5px;
+}
+
+.bordered {
+  border-radius: 25px;
+    border: 3px solid  #d9d9d9;
+    padding: 20px; 
+}
+
+/* DEBUG */
+/* div {
+   outline: red 2px solid;
+} */
